@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08090f" />
+  <meta name="description" content="NEXUS 3D — An interactive digital universe exploring geometry, motion and immersive web experiences. Created by Nihar Tiwari." />
+  <title>NEXUS / 3D — A Living Digital Universe</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      }
+    }
+  </script>
+  <script type="module" src="script.js"></script>
+</head>
+
+<body>
+  <div class="grain"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Nexus home">
+      <span class="brand-symbol">N<span>✳</span></span>
+      <span class="brand-copy">NEXUS<small>INTERACTIVE WORLDS</small></span>
+    </a>
+
+    <div class="top-status">
+      <span class="status-dot"></span>
+      EXPERIMENT NO. 001
+    </div>
+
+    <button class="menu-button" id="menuButton" aria-expanded="false">
+      <span id="menuLabel">INDEX</span><span class="menu-icon">↗</span>
+    </button>
+  </header>
+
+  <nav class="menu-panel" id="menuPanel" aria-hidden="true">
+    <span class="eyebrow">NAVIGATE THE UNIVERSE</span>
+    <a href="#home">01 — Origin</a>
+    <a href="#explore">02 — Objects</a>
+    <a href="#experience">03 — Experience</a>
+    <a href="#about">04 — Credits</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid"></div>
+      <div class="orbit-label orbit-label-one">FIG. 001 / SPATIAL STUDY</div>
+      <div class="orbit-label orbit-label-two">X: 08.42 &nbsp; Y: 21.06</div>
+
+      <div class="hero-copy" data-depth="0.2">
+        <div class="eyebrow reveal">
+          <span class="tiny-square"></span>
+          BEYOND THE FLAT SCREEN
+        </div>
+
+        <h1 class="reveal">
+          THE WEB<br />
+          HAS A <span class="outline-word">THIRD</span><br />
+          DIMENSION<span class="lime-dot">.</span>
+        </h1>
+
+        <p class="hero-description reveal">
+          A living experiment in depth, movement and digital matter.
+          Enter a universe where the interface is only the beginning.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a class="primary-button" href="#explore">
+            EXPLORE THE OBJECTS <span>↘</span>
+          </a>
+          <span class="scroll-hint"><span class="mouse-icon"></span> SCROLL TO DESCEND</span>
+        </div>
+      </div>
+
+      <div class="hero-index" data-depth="0.35">
+        <span class="index-top">DIGITAL SPECIMEN</span>
+        <span class="index-number">N° 001</span>
+        <span class="index-bottom">FORM / FIELD / FORCE</span>
+      </div>
+
+      <div class="canvas-frame" id="canvasFrame">
+        <div id="sceneMount" aria-label="Interactive 3D geometric sculpture"></div>
+        <div class="canvas-caption">
+          <span>LIVE 3D RENDER</span>
+          <span class="caption-center">MOVE YOUR CURSOR ↗</span>
+          <span id="renderStatus">INITIALIZING</span>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <span>INDEPENDENT DIGITAL EXPERIMENT</span>
+        <span>BHUBANESWAR / INDIA</span>
+        <span>SCROLL ↓</span>
+      </div>
+    </section>
+
+    <section class="manifesto section-pad" id="experience">
+      <div class="section-top">
+        <span class="eyebrow">01 / THE IDEA</span>
+        <span class="section-count">SPACE IS A MATERIAL</span>
+      </div>
+
+      <div class="manifesto-grid">
+        <h2 class="manifesto-heading reveal">
+          Why should a<br />
+          website stay <span class="accent-text">flat?</span>
+        </h2>
+
+        <div class="manifesto-copy reveal">
+          <span class="large-asterisk">✳</span>
+          <p>
+            The next generation of the web isn't just something you read.
+            It's something you enter, discover and manipulate.
+          </p>
+          <p class="muted-copy">
+            NEXUS combines real-time 3D geometry, scroll-reactive motion and
+            tactile controls to transform browsing into spatial exploration.
+            Every rotation reveals a new perspective. Every scroll changes
+            the world around you.
+          </p>
+          <a href="#explore" class="text-link">DISCOVER THE SYSTEM <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="ticker" aria-label="Design principles">
+        <div class="ticker-track">
+          <span>DEPTH IS INTERACTION ✳</span>
+          <span>MOTION HAS MEANING ✳</span>
+          <span>FORM FOLLOWS FEELING ✳</span>
+          <span>DEPTH IS INTERACTION ✳</span>
+          <span>MOTION HAS MEANING ✳</span>
+          <span>FORM FOLLOWS FEELING ✳</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="explore-section section-pad" id="explore">
+      <div class="section-top">
+        <span class="eyebrow">02 / OBJECT ARCHIVE</span>
+        <span class="section-count">THREE FORMS. INFINITE STATES.</span>
+      </div>
+
+      <div class="explore-intro">
+        <h2 class="reveal">Choose your<br /><span class="accent-text">dimension.</span></h2>
+        <p class="reveal">Select a specimen to transform the central sculpture. Each form has its own geometry, motion and character.</p>
+      </div>
+
+      <div class="specimen-layout">
+        <div class="specimen-list" role="group" aria-label="Choose a 3D specimen">
+          <button class="specimen-card active" data-shape="torus" aria-pressed="true">
+            <span class="specimen-number">01</span>
+            <span class="specimen-name">THE HELIX</span>
+            <span class="specimen-description">Continuous / Fluid / Organic</span>
+            <span class="specimen-arrow">↗</span>
+          </button>
+
+          <button class="specimen-card" data-shape="icosahedron" aria-pressed="false">
+            <span class="specimen-number">02</span>
+            <span class="specimen-name">THE CRYSTAL</span>
+            <span class="specimen-description">Angular / Precise / Mineral</span>
+            <span class="specimen-arrow">↗</span>
+          </button>
+
+          <button class="specimen-card" data-shape="knot" aria-pressed="false">
+            <span class="specimen-number">03</span>
+            <span class="specimen-name">THE ORBIT</span>
+            <span class="specimen-description">Recursive / Complex / Infinite</span>
+            <span class="specimen-arrow">↗</span>
+          </button>
+
+          <div class="specimen-tip">
+            <span class="tip-icon">✳</span>
+            <span>PRO TIP<br />DRAG THE OBJECT TO ROTATE IT</span>
+          </div>
+        </div>
+
+        <div class="specimen-stage">
+          <div class="stage-grid"></div>
+          <div class="stage-crosshair">+</div>
+          <div class="stage-coordinates">X / Y / Z — INTERACTIVE SPACE</div>
+
+          <div class="stage-canvas" id="stageCanvas">
+            <span class="stage-loading">LOADING GEOMETRY...</span>
+          </div>
+
+          <div class="stage-footer">
+            <div>
+              <span class="eyebrow">CURRENT SPECIMEN</span>
+              <h3 id="objectTitle">THE HELIX</h3>
+            </div>
+            <button id="spinButton" class="spin-button" aria-pressed="false">
+              <span id="spinIcon">Ⅱ</span> <span id="spinLabel">PAUSE ROTATION</span>
+            </button>
+          </div>
+
+          <div class="stage-index">NEXUS / OBJECT LAB</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="depth-section">
+      <div class="depth-background" id="depthBackground"></div>
+      <div class="depth-content section-pad">
+        <div class="section-top">
+          <span class="eyebrow">03 / A CHANGE IN PERSPECTIVE</span>
+          <span class="section-count">SCROLL-DRIVEN EXPERIENCE</span>
+        </div>
+
+        <div class="depth-title-wrap">
+          <span class="depth-overline reveal">THE THIRD DIMENSION IS NOT A DESTINATION.</span>
+          <h2 class="depth-title reveal">
+            IT'S A<br />
+            DIFFERENT<br />
+            <span class="depth-highlight">WAY OF SEEING.</span>
+          </h2>
+          <p class="depth-paragraph reveal">
+            Layers move at different speeds. Objects respond to your presence.
+            Space becomes an active part of the story.
+          </p>
+        </div>
+
+        <div class="depth-stats">
+          <div class="depth-stat">
+            <span class="stat-value" data-count="3">0</span>
+            <span class="stat-label">SPATIAL AXES</span>
+          </div>
+          <div class="depth-stat">
+            <span class="stat-value" data-count="60">0</span>
+            <span class="stat-label">TARGET FPS</span>
+          </div>
+          <div class="depth-stat">
+            <span class="stat-value" data-count="∞">∞</span>
+            <span class="stat-label">POSSIBLE FORMS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles section-pad">
+      <div class="section-top">
+        <span class="eyebrow">04 / THE BUILD PHILOSOPHY</span>
+        <span class="section-count">DESIGNED TO BE EXPERIENCED</span>
+      </div>
+
+      <div class="principle-grid">
+        <article class="principle reveal">
+          <span class="principle-index">A / 01</span>
+          <div class="principle-icon icon-depth">◉</div>
+          <h3>SPATIAL DEPTH</h3>
+          <p>A perspective camera, layered geometry and orbital elements create a tangible sense of three-dimensional space.</p>
+        </article>
+
+        <article class="principle reveal">
+          <span class="principle-index">B / 02</span>
+          <div class="principle-icon icon-motion">↝</div>
+          <h3>CONTINUOUS MOTION</h3>
+          <p>Time-based animation and scroll progress drive transitions, rotations and a changing sense of scale.</p>
+        </article>
+
+        <article class="principle reveal">
+          <span class="principle-index">C / 03</span>
+          <div class="principle-icon icon-touch">⌁</div>
+          <h3>DIRECT CONTROL</h3>
+          <p>Switch geometry, pause rotation and drag to explore the sculpture from a different angle.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="final-section section-pad">
+      <div class="final-orbit final-orbit-a"></div>
+      <div class="final-orbit final-orbit-b"></div>
+      <div class="final-content">
+        <span class="eyebrow reveal">THE UNIVERSE IS STILL OPEN</span>
+        <h2 class="reveal">YOUR SCREEN.<br />ANOTHER <span>WORLD.</span></h2>
+        <a class="primary-button final-button" href="#home">
+          RETURN TO ORIGIN <span>↗</span>
+        </a>
+      </div>
+      <div class="final-number">N° 001 — END / BEGIN</div>
+    </section>
+  </main>
+
+  <footer class="footer" id="about">
+    <a class="footer-brand" href="#home">NEXUS<span>✳</span></a>
+    <div class="footer-credit">
+      <span>CONCEPT & DEVELOPMENT</span>
+      <strong>NIHAR TIWARI</strong>
+      <span>BUILT FOR TECHFEST / BUILD IN 3D</span>
+    </div>
+    <a class="footer-top" href="#home">BACK TO TOP ↑</a>
+    <span class="footer-copy">© 2026 / INDEPENDENT WEB EXPERIMENT</span>
+  </footer>
+
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
